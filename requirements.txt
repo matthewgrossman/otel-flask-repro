@@ -1,0 +1,5 @@
+gevent==22.10.2
+flask==1.1.4
+opentelemetry-instrumentation-flask
+opentelemetry-sdk
+opentelemetry-api
