@@ -18,8 +18,8 @@ def test_route():
     fn = wrap_fn_in_req_context__broken(func_that_accesses_req_context)
     # fn = wrap_fn_in_req_context__workaround(func_that_accesses_req_context)
 
-    # create a new greenlet that inherits the current contextvar ctx,
-    # as recommended by greenlet docs:
+    # Create a new greenlet that runs our wrapped func.
+    # Inherit the current `contextvar` ctx, as recommended by greenlet docs:
     # https://greenlet.readthedocs.io/en/stable/contextvars.html
     greenlet = gevent.spawn(fn)
     greenlet.gr_context = contextvars.copy_context()
