@@ -54,6 +54,7 @@ def wrap_fn_in_req_context__workaround(fn):
 
 def func_that_accesses_req_context() -> str:
     # example function that *might* run within a greenlet,
-    # and therefore needs access to the request headers
+    # and therefore should be wrapped with a request context
+    # prior to running
     with tracer.start_as_current_span("span_in_greenlet"):
         return flask.request.headers.get("x-test-header", "no header")
